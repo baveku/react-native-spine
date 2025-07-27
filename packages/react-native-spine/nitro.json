@@ -9,14 +9,6 @@
     "androidCxxLibName": "NitroSpine"
   },
   "autolinking": {
-    "SpineFactory": {
-      "swift": "HybridSpineFactory",
-      "kotlin": "HybridSpineFactory"
-    },
-    "SpineSkeleton": {
-      "swift": "HybridSpineSkeleton",
-      "kotlin": "HybridSpineSkeleton"
-    },
     "SpineView": {
       "swift": "HybridSpineView",
       "kotlin": "HybridSpineView"

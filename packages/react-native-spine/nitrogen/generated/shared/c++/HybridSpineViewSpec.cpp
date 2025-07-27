@@ -14,13 +14,10 @@ namespace margelo::nitro::spine {
     HybridObject::loadHybridMethods();
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
-      prototype.registerHybridGetter("skeleton", &HybridSpineViewSpec::getSkeleton);
-      prototype.registerHybridSetter("skeleton", &HybridSpineViewSpec::setSkeleton);
-      prototype.registerHybridGetter("premultipliedAlpha", &HybridSpineViewSpec::getPremultipliedAlpha);
-      prototype.registerHybridSetter("premultipliedAlpha", &HybridSpineViewSpec::setPremultipliedAlpha);
-      prototype.registerHybridGetter("debug", &HybridSpineViewSpec::getDebug);
-      prototype.registerHybridSetter("debug", &HybridSpineViewSpec::setDebug);
-      prototype.registerHybridMethod("invalidate", &HybridSpineViewSpec::invalidate);
+      prototype.registerHybridGetter("atlasName", &HybridSpineViewSpec::getAtlasName);
+      prototype.registerHybridSetter("atlasName", &HybridSpineViewSpec::setAtlasName);
+      prototype.registerHybridGetter("skeletonName", &HybridSpineViewSpec::getSkeletonName);
+      prototype.registerHybridSetter("skeletonName", &HybridSpineViewSpec::setSkeletonName);
     });
   }
 

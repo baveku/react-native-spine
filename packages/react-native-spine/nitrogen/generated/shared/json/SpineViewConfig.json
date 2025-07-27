@@ -1,0 +1,11 @@
+{
+  "uiViewClassName": "SpineView",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "atlasName": true,
+    "skeletonName": true,
+    "hybridRef": true
+  }
+}

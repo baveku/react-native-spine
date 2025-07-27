@@ -8,4 +8,4 @@ packages/**/*/plugin/index.js.map
 build/
 **/ios/
 **/android/
-
+**/nitrogen/

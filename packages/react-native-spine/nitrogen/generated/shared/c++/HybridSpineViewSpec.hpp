@@ -13,12 +13,9 @@
 #error NitroModules cannot be found! Are you sure you installed NitroModules properly?
 #endif
 
-// Forward declaration of `HybridSpineSkeletonSpec` to properly resolve imports.
-namespace margelo::nitro::spine { class HybridSpineSkeletonSpec; }
 
-#include <optional>
-#include <memory>
-#include "HybridSpineSkeletonSpec.hpp"
+
+#include <string>
 
 namespace margelo::nitro::spine {
 
@@ -47,16 +44,14 @@ namespace margelo::nitro::spine {
 
     public:
       // Properties
-      virtual std::optional<std::shared_ptr<margelo::nitro::spine::HybridSpineSkeletonSpec>> getSkeleton() = 0;
-      virtual void setSkeleton(const std::optional<std::shared_ptr<margelo::nitro::spine::HybridSpineSkeletonSpec>>& skeleton) = 0;
-      virtual bool getPremultipliedAlpha() = 0;
-      virtual void setPremultipliedAlpha(bool premultipliedAlpha) = 0;
-      virtual bool getDebug() = 0;
-      virtual void setDebug(bool debug) = 0;
+      virtual std::string getAtlasName() = 0;
+      virtual void setAtlasName(const std::string& atlasName) = 0;
+      virtual std::string getSkeletonName() = 0;
+      virtual void setSkeletonName(const std::string& skeletonName) = 0;
 
     public:
       // Methods
-      virtual void invalidate() = 0;
+      
 
     protected:
       // Hybrid Setup
