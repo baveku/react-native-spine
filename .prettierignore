@@ -1,0 +1,13 @@
+build/
+.yarn/
+
+# Worklets
+packages/**/*/lib/
+packages/**/*/plugin/index.js
+packages/**/*/plugin/index.js.map
+
+# Apps
+ios/
+macos/
+vendor/
+apps/common-app/**/*.snapshot.ts

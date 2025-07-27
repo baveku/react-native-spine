@@ -1,0 +1,11 @@
+node_modules/
+**/lib/
+
+# Worklets
+packages/**/*/lib/
+packages/**/*/plugin/index.js
+packages/**/*/plugin/index.js.map
+build/
+**/ios/
+**/android/
+

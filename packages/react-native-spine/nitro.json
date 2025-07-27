@@ -1,0 +1,26 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": ["spine"],
+  "ios": {
+    "iosModuleName": "NitroSpine"
+  },
+  "android": {
+    "androidNamespace": ["spine"],
+    "androidCxxLibName": "NitroSpine"
+  },
+  "autolinking": {
+    "SpineFactory": {
+      "swift": "HybridSpineFactory",
+      "kotlin": "HybridSpineFactory"
+    },
+    "SpineSkeleton": {
+      "swift": "HybridSpineSkeleton",
+      "kotlin": "HybridSpineSkeleton"
+    },
+    "SpineView": {
+      "swift": "HybridSpineView",
+      "kotlin": "HybridSpineView"
+    }
+  },
+  "ignorePaths": ["**/node_modules"]
+}
