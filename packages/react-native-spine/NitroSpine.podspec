@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     "SWIFT_OBJC_INTEROP_MODE" => "objcxx",
     # Enables stricter modular headers
     "DEFINES_MODULE" => "YES",
-		'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/SpineCppLite/spine-cpp/spine-cpp/include" "$(PODS_ROOT)/SpineCppLite/spine-cpp/spine-cpp-lite"',
+		'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/SpineCppLite/spine-cpp/spine-cpp/include" "$(PODS_ROOT)/SpineCppLite/spine-cpp/spine-cpp-lite"',
     'MTL_HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/SpineShadersStructs"'
   }
 

@@ -9,7 +9,5 @@ export interface NitroSpineViewProps extends HybridViewProps {
   skeletonName: string
 }
 
-export interface NitroSpineViewMethods extends HybridViewMethods {
-  onStartAnimation: (animation: string) => void
-}
+export interface NitroSpineViewMethods extends HybridViewMethods {}
 export type SpineView = HybridView<NitroSpineViewProps, NitroSpineViewMethods>
