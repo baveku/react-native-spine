@@ -1,0 +1,11 @@
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, arch:arm64, id:789C835E-CE6C-46BB-A563-6D76CC857D31, OS:18.3.1, name:iPhone 16 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:789C835E-CE6C-46BB-A563-6D76CC857D31, OS:18.3.1, name:iPhone 16 Pro }
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftCompile normal arm64 Compiling\ HybridSpineView.swift,\ HybridSpineViewSpec.swift /Users/admin/Workspace/Project/rnspine/packages/react-native-spine/ios/HybridSpineView.swift /Users/admin/Workspace/Project/rnspine/packages/react-native-spine/nitrogen/generated/ios/swift/HybridSpineViewSpec.swift (in target 'NitroSpine' from project 'Pods')
+	SwiftCompile normal arm64 /Users/admin/Workspace/Project/rnspine/packages/react-native-spine/ios/HybridSpineView.swift (in target 'NitroSpine' from project 'Pods')
+	Building workspace mobileexample with scheme mobileexample and configuration Debug
+(3 failures)
