@@ -57,6 +57,13 @@
             ]
           }
         }
+      ],
+      [
+        "expo-spines-assets",
+        {
+          "assetsPaths": ["./assets/spines"],
+          "assetsDirName": "Spines"
+        }
       ]
     ],
     "experiments": {

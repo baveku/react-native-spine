@@ -1,8 +1,4 @@
-import SpineViewComponent from './SpineView'
+import { SpineViewRenderer } from './specs/Spine.nitro'
 
-// Export types
-export type { SpineViewProps } from './SpineView'
-
-// Export components
-export { SpineViewComponent as SpineView }
-export default SpineViewComponent
+export { SpineViewRenderer as SpineView }
+export default SpineViewRenderer

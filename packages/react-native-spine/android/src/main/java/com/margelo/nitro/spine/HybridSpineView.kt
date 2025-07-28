@@ -1,23 +1,72 @@
 package com.margelo.nitro.spine
 
 import android.content.Context
-import android.graphics.*
-import android.util.Log
-import android.view.SurfaceHolder
-import android.view.SurfaceView
-import com.badlogic.gdx.ApplicationAdapter
-import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.backends.android.AndroidApplication
-import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import com.badlogic.gdx.graphics.GL20
-import com.badlogic.gdx.graphics.OrthographicCamera
-import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.math.Vector2
-import com.esotericsoftware.spine.SkeletonRenderer
-import com.margelo.nitro.NitroModules
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.RelativeLayout
+import com.esotericsoftware.spine.android.*
+import com.esotericsoftware.spine.android.bounds.Alignment
+import com.esotericsoftware.spine.android.bounds.ContentMode
 
-class HybridSpineView : HybridSpineViewSpec() {
+class HybridSpineView(context: Context) : HybridSpineViewSpec() {
   companion object {
     const val TAG = "HybridSpineView"
+  }
+  private val ctx = context
+  private var _skelName = ""
+  private var _atlasName = ""
+  private var currentSpineView: SpineView? = null
+  
+  // Background view - your main view
+  private val mainView = View(context)
+  
+  // Container that holds both mainView and spineView
+  private val containerView = FrameLayout(context)
+
+  override var skeletonName: String
+    get() = _skelName
+    set(value) {
+      if (value != _skelName) {
+        _skelName = value
+        onUpdate()
+      }
+    }
+
+  override var atlasName: String
+    get() = _atlasName
+    set(value) {
+      if (value != _atlasName) {
+        _atlasName = value
+        onUpdate()
+      }
+    }
+
+  override val view: View
+    get() = containerView
+
+  private fun onUpdate() {
+    // Remove existing spine view if any
+    currentSpineView?.let { 
+      containerView.removeView(it)
+      currentSpineView = null
+    }
+    
+    // Only create new spine view if both atlas and skeleton names are provided
+    if (_atlasName.isNotEmpty() && _skelName.isNotEmpty()) {
+      val spineView = SpineView.loadFromAssets(_atlasName, _skelName, containerView.context, SpineController() {
+        print(it.skeleton.data.animations.map { it.name })
+        it.animationState.setAnimation(0, "Idle_Listening", true)
+      })
+      spineView.setContentMode(ContentMode.FILL)
+      spineView.setAlignment(Alignment.CENTER)
+      
+      // Add spine view on top of mainView
+      val layoutParams = RelativeLayout.LayoutParams(
+        RelativeLayout.LayoutParams.MATCH_PARENT,
+        RelativeLayout.LayoutParams.MATCH_PARENT
+      )
+      containerView.addView(spineView, layoutParams)
+      currentSpineView = spineView
+    }
   }
 } 

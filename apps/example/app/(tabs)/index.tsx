@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Alert, Button, Image, StyleSheet, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { Button, Image, StyleSheet, View } from 'react-native'
 
 import { HelloWave } from '@/components/HelloWave'
 import ParallaxScrollView from '@/components/ParallaxScrollView'
@@ -8,10 +8,24 @@ import { ThemedView } from '@/components/ThemedView'
 
 // Import Spine components
 import { SpineView } from '@bitu/react-native-spine'
+import Animated, { interpolate, useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated'
+
+const SpineAnimationView = Animated.createAnimatedComponent(SpineView)
 
 export default function HomeScreen() {
+  const progress = useSharedValue(0)
+  const animatedStyle = useAnimatedStyle(() => {
+    const scale = interpolate(progress.value, [0, 1], [0.5, 1])
+    return {
+      transform: [{ scale }],
+    }
+  })
+
+  useEffect(() => {
+    progress.value = withRepeat(withTiming(1, { duration: 1000 }), -1, true)
+  }, [])
+
   const [isLoading, setIsLoading] = useState(false)
-  const [currentAnimation, setCurrentAnimation] = useState<string>('')
 
   return (
     <ParallaxScrollView
@@ -35,7 +49,11 @@ export default function HomeScreen() {
 
       <ThemedView style={styles.stepContainer}>
         <View style={styles.spineContainer}>
-          <SpineView style={styles.spineView} />
+          <SpineAnimationView
+            atlasName="Tutor.atlas"
+            skeletonName="Tutor.skel"
+            style={[styles.spineView, animatedStyle]}
+          />
         </View>
       </ThemedView>
 
@@ -76,8 +94,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   spineView: {
-    width: 300,
-    height: 300,
+    width: 200,
+    height: 200,
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
     borderRadius: 8,
     borderWidth: 1,

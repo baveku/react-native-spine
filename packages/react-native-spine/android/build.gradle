@@ -133,9 +133,7 @@ dependencies {
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
-	implementation 'com.esotericsoftware.spine:spine-libgdx:4.1.+'
-	implementation 'com.badlogicgames.gdx:gdx:1.9.14'
-	implementation 'com.badlogicgames.gdx:gdx-backend-android:1.9.14'
+  implementation 'com.esotericsoftware.spine:spine-android:4.2.+'
 
   // Add a dependency on NitroModules
   implementation project(":react-native-nitro-modules")
